@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat - Legal Assistance System</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% include "_nav.html" %}
+
+    <!-- Heading -->
+    <div class="hero hero-compact">
+        <h1>🤖 AI Legal Assistance</h1>
+
+        <p>
+            Ask a legal question about Indian law and get simple, practical guidance.
+        </p>
+    </div>
+
+
+    <!-- Chat Box -->
+    <div class="chat-shell">
+
+        {% if not session.get('user_id') %}
+        <div class="login-banner">
+            Please <a href="{{ url_for('login') }}">login</a> or
+            <a href="{{ url_for('register') }}">register</a> to use the AI chat.
+        </div>
+        {% endif %}
+
+        <div id="chatWindow" class="chat-window" aria-live="polite">
+            <div class="msg msg-ai">
+                <div class="bubble">
+                    Hello! I can help with general questions about Indian law &ndash; property,
+                    rent, cyber crime, consumer rights, family matters, employment and more.
+                    What would you like to know?
+                </div>
+            </div>
+        </div>
+
+        <div class="suggestions" id="suggestions">
+            <button type="button" class="chip">What is a rental agreement?</button>
+            <button type="button" class="chip">I lost money in an online fraud. What should I do?</button>
+            <button type="button" class="chip">How do I file a consumer complaint?</button>
+            <button type="button" class="chip">How do I file an FIR?</button>
+            <button type="button" class="chip">What is the process of divorce by mutual consent?</button>
+            <button type="button" class="chip">My employer has not paid my salary</button>
+        </div>
+
+        <div class="chat-input-row">
+            <textarea
+                id="userQuestion"
+                rows="1"
+                maxlength="1000"
+                placeholder="Type your legal question and press Enter"
+            ></textarea>
+
+            <button type="button" id="sendBtn">Ask AI</button>
+        </div>
+
+        <p class="chat-footnote">
+            AI-generated general information, not legal advice. Please consult a qualified lawyer for your specific case.
+        </p>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+        const chatWindow = document.getElementById("chatWindow");
+        const input = document.getElementById("userQuestion");
+        const sendBtn = document.getElementById("sendBtn");
+        const suggestions = document.getElementById("suggestions");
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        // Small, safe formatter: **bold**, bullet lists, numbered lists, paragraphs
+        function formatMessage(text) {
+            const lines = escapeHtml(text).split("\n");
+            let html = "";
+            let list = null;   // "ul" or "ol"
+
+            function closeList() {
+                if (list) { html += "</" + list + ">"; list = null; }
+            }
+
+            lines.forEach(function (raw) {
+                let line = raw.trim();
+                line = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+                let bullet = line.match(/^(?:[•\-\*])\s+(.*)$/);
+                let numbered = line.match(/^\d+[\.\)]\s+(.*)$/);
+
+                if (bullet) {
+                    if (list !== "ul") { closeList(); html += "<ul>"; list = "ul"; }
+                    html += "<li>" + bullet[1] + "</li>";
+                } else if (numbered) {
+                    if (list !== "ol") { closeList(); html += "<ol>"; list = "ol"; }
+                    html += "<li>" + numbered[1] + "</li>";
+                } else if (line === "") {
+                    closeList();
+                } else {
+                    closeList();
+                    html += "<p>" + line.replace(/^#+\s*/, "") + "</p>";
+                }
+            });
+
+            closeList();
+            return html;
+        }
+
+        function addMessage(text, who, extra) {
+            const wrap = document.createElement("div");
+            wrap.className = "msg " + (who === "user" ? "msg-user" : "msg-ai");
+
+            const bubble = document.createElement("div");
+            bubble.className = "bubble";
+
+            if (who === "user") {
+                bubble.textContent = text;
+            } else {
+                bubble.innerHTML = formatMessage(text);
+            }
+
+            wrap.appendChild(bubble);
+
+            if (extra) {
+                const note = document.createElement("div");
+                note.className = "msg-note";
+                note.textContent = extra;
+                wrap.appendChild(note);
+            }
+
+            chatWindow.appendChild(wrap);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            return wrap;
+        }
+
+        function autoResize() {
+            input.style.height = "auto";
+            input.style.height = Math.min(input.scrollHeight, 140) + "px";
+        }
+
+        async function askQuestion() {
+
+            const question = input.value.trim();
+
+            // Check empty question
+            if (question === "") {
+                input.focus();
+                return;
+            }
+
+            suggestions.style.display = "none";
+            addMessage(question, "user");
+
+            input.value = "";
+            autoResize();
+            sendBtn.disabled = true;
+            input.disabled = true;
+
+            // Show typing indicator
+            const typing = addMessage("", "ai");
+            typing.querySelector(".bubble").innerHTML =
+                '<span class="typing"><span></span><span></span><span></span></span>';
+
+            try {
+
+                // Send question to Flask
+                const response = await fetch("/ask-ai", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: question })
+                });
+
+                const data = await response.json();
+                typing.remove();
+
+                // Not logged in / validation error
+                if (!data.success) {
+                    addMessage(data.message || "Something went wrong.", "ai");
+                    return;
+                }
+
+                // Display AI answer (Flask already saves it to Chat History)
+                addMessage(data.response, "ai", data.notice);
+
+            } catch (error) {
+
+                console.error(error);
+                typing.remove();
+                addMessage("Something went wrong. Please try again.", "ai");
+
+            } finally {
+                sendBtn.disabled = false;
+                input.disabled = false;
+                input.focus();
+            }
+        }
+
+        sendBtn.addEventListener("click", askQuestion);
+
+        input.addEventListener("input", autoResize);
+
+        input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                askQuestion();
+            }
+        });
+
+        suggestions.querySelectorAll(".chip").forEach(function (chip) {
+            chip.addEventListener("click", function () {
+                input.value = chip.textContent;
+                askQuestion();
+            });
+        });
+    </script>
+
+</body>
+</html>

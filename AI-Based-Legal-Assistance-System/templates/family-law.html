@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Law - Legal Assistance System</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% include "_nav.html" %}
+
+    <div class="hero">
+
+        <h1>👨‍👩‍👧 Family Law</h1>
+
+        <p>
+            General information and guidance about common
+            family-law matters.
+        </p>
+
+    </div>
+
+    <div class="features">
+
+        <div class="card">
+
+            <h2>💍 Marriage</h2>
+
+            <p>
+                Information about marriage-related
+                legal documents and procedures.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>⚖️ Divorce</h2>
+
+            <p>
+                General information about divorce-related
+                procedures and documentation.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>👶 Child Custody</h2>
+
+            <p>
+                General information about child custody
+                and related legal considerations.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>💰 Maintenance</h2>
+
+            <p>
+                General information about maintenance
+                and supporting documentation.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="card" style="width: 600px; margin: 40px auto;">
+
+        <h2>📋 Common Documents</h2>
+
+        <ul style="text-align: left;">
+
+            <li>Identity Proof</li>
+            <li>Address Proof</li>
+            <li>Marriage Certificate, where applicable</li>
+            <li>Relevant supporting documents</li>
+
+        </ul>
+
+        <hr>
+
+        <h3>📝 General Next Step</h3>
+
+        <p>
+            Gather the relevant documents and seek
+            advice from a qualified legal professional
+            for your specific situation.
+        </p>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Legal Risk Analyzer</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    {% include "_nav.html" %}
+
+
+    <!-- Risk Analyzer -->
+    <div class="risk-container">
+
+        <h1>AI Legal Risk Analyzer</h1>
+
+        <p>
+            Select a legal category and describe your situation.
+            The system will provide a general risk assessment and suggested action.
+        </p>
+
+        <br>
+
+        <label for="riskCategory">Select Legal Category:</label>
+
+        <select id="riskCategory">
+            <option value="">-- Select Category --</option>
+            <option value="Cyber Crime">Cyber Crime</option>
+            <option value="Family Law">Family Law</option>
+            <option value="Property Law">Property Law</option>
+            <option value="Consumer Law">Consumer Law</option>
+            <option value="Employment Law">Employment Law</option>
+        </select>
+
+        <br><br>
+
+        <label for="riskSituation">Describe Your Situation:</label>
+
+        <textarea id="riskSituation" rows="6" placeholder="Describe your legal problem here..."></textarea>
+
+        <br><br>
+
+        <!-- IMPORTANT: This calls analyzeRisk() -->
+<button type="button" onclick="analyzeRisk()">
+    Analyze Risk
+</button>
+
+        <br><br>
+
+        <!-- Result will appear here -->
+        <div id="riskResult"></div>
+
+    </div>
+
+
+    <!-- Connect JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employment Law</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        .employment-page {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .employment-page h1 {
+            text-align: center;
+            color: #123b8d;
+            margin-bottom: 10px;
+        }
+
+        .employment-intro {
+            text-align: center;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* Employment law cards */
+        .employment-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .employment-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            min-height: 180px;
+            transition: 0.3s;
+        }
+
+        .employment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .employment-card h2 {
+            font-size: 21px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .employment-card p {
+            color: #555;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        /* Common documents */
+        .employment-bottom {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .documents-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            margin-bottom: 25px;
+        }
+
+        .documents-card h2,
+        .next-step-card h2 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        .documents-card ul {
+            max-width: 500px;
+            margin: auto;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* General next step */
+        .next-step-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            text-align: center;
+        }
+
+        .next-step-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #123b8d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+            .employment-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .employment-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="brand"><span class="brand-badge"><img src="{{ url_for('static', filename='images/resolv-logo.png') }}" alt="RESOLV.ai logo"></span><span class="brand-name">RESOLV<span class="brand-ai">.ai</span></span></a>
+        <a href="/">Home</a>
+        <a href="/categories">Legal Categories</a>
+        <a href="/chat">AI Chat</a>
+        <a href="/history">Chat History</a>
+        <a href="/faq">FAQ</a>
+        <a href="/checklist">Document Checklist</a>
+        <a href="/risk-analyzer">Risk Analyzer</a>
+
+        {% if session.get('user_id') %}
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </nav>
+
+
+    <div class="employment-page">
+
+        <h1>💼 Employment Law</h1>
+
+        <p class="employment-intro">
+            General information and guidance about common employment-related
+            legal matters.
+        </p>
+
+
+        <!-- Employment Cards -->
+        <div class="employment-cards">
+
+            <!-- Card 1 -->
+            <div class="employment-card">
+                <h2>💼 Employment Contracts</h2>
+
+                <p>
+                    General information about employment contracts,
+                    appointment letters, job responsibilities and terms
+                    of employment.
+                </p>
+            </div>
+
+
+            <!-- Card 2 -->
+            <div class="employment-card">
+                <h2>💰 Salary & Wages</h2>
+
+                <p>
+                    General information about salary, wages,
+                    deductions and employment-related payment issues.
+                </p>
+            </div>
+
+
+            <!-- Card 3 -->
+            <div class="employment-card">
+                <h2>🕒 Working Hours & Leave</h2>
+
+                <p>
+                    General information about working hours,
+                    holidays, leave and workplace attendance.
+                </p>
+            </div>
+
+
+            <!-- Card 4 -->
+            <div class="employment-card">
+                <h2>📄 Termination of Employment</h2>
+
+                <p>
+                    General information about resignation,
+                    termination and employment-related disputes.
+                </p>
+            </div>
+
+
+            <!-- Card 5 -->
+            <div class="employment-card">
+                <h2>🛡️ Workplace Rights</h2>
+
+                <p>
+                    General information about employee rights,
+                    workplace conditions and protection from
+                    workplace harassment.
+                </p>
+            </div>
+
+
+            <!-- Card 6 -->
+            <div class="employment-card">
+                <h2>🎁 Employee Rights & Benefits</h2>
+
+                <p>
+                    General information about employee benefits,
+                    workplace protections and related employment matters.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Bottom Section -->
+       <div class="employment-bottom">
+
+    <div class="documents-card">
+
+        <h2>📋 Common Documents</h2>
+
+        <ul>
+            <li>Appointment Letter</li>
+            <li>Employment Contract</li>
+            <li>Salary Slips</li>
+            <li>Leave Records</li>
+            <li>Relevant Employer Communication</li>
+        </ul>
+
+        <hr>
+
+        <h2>📌 General Next Step</h2>
+
+        <p>
+            Keep important employment documents such as appointment letters,
+            salary records, employment contracts and relevant communication
+            with your employer.
+        </p>
+
+        <p>
+            For a specific employment dispute, the applicable law and
+            circumstances should be examined carefully. Consider consulting
+            a qualified legal professional.
+        </p>
+
+    </div>
+
+</div>
+
+        <!-- Back -->
+        <a href="/categories" class="back-link">
+            ← Back to Legal Categories
+        </a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Checklist</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    {% include "_nav.html" %}
+
+    <!-- Main Heading -->
+    <div class="hero">
+
+        <h1>📋 Document Checklist</h1>
+
+        <p>
+            Select a legal category to view commonly required documents.
+        </p>
+
+       <div class="checklist-cards">
+        <!-- Family Law -->
+        <div class="card">
+
+            <h2>👨‍👩‍👧 Family Law</h2>
+
+            <p>
+                Identity proof, marriage certificate, address proof
+                and other relevant documents.
+            </p>
+
+            <button type="button" onclick="showChecklist('family')">
+                View Checklist
+            </button>
+
+        </div>
+
+
+        <!-- Property Law -->
+        <div class="card">
+
+            <h2>🏠 Property Law</h2>
+
+            <p>
+                Property documents, ownership records, registration
+                documents and identity proof.
+            </p>
+
+            <button type="button" onclick="showChecklist('property')">
+                View Checklist
+            </button>
+
+        </div>
+
+
+        <!-- Cyber Crime -->
+        <div class="card">
+
+            <h2>💻 Cyber Crime</h2>
+
+            <p>
+                Screenshots, transaction details, communication records
+                and identity proof.
+            </p>
+
+            <button type="button" onclick="showChecklist('cyber')">
+                View Checklist
+            </button>
+
+        </div>
+
+
+        <!-- Consumer Law -->
+        <div class="card">
+
+            <h2>🛒 Consumer Law</h2>
+
+            <p>
+                Purchase bill, warranty documents, receipts
+                and complaint details.
+            </p>
+
+            <button type="button" onclick="showChecklist('consumer')">
+                View Checklist
+            </button>
+
+        </div>
+
+
+        <!-- Employment Law -->
+        <div class="card">
+
+            <h2>💼 Employment Law</h2>
+
+            <p>
+                Appointment letter, salary slips, bank statements
+                and workplace communication records.
+            </p>
+
+            <button type="button" onclick="showChecklist('employment')">
+                View Checklist
+            </button>
+
+        </div>
+        </div>
+
+
+        <!-- Checklist Result -->
+        <div class="card" id="checklistResult" style="display:none;">
+
+            <h2>📄 Required Documents</h2>
+
+            <ul id="documentList"></ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+function showChecklist(category) {
+
+    const documentList = document.getElementById("documentList");
+    const checklistResult = document.getElementById("checklistResult");
+
+    let documents = [];
+
+    if (category === "family") {
+        documents = [
+            "Identity Proof",
+            "Marriage Certificate",
+            "Address Proof",
+            "Birth Certificate",
+            "Relevant Court or Legal Documents"
+        ];
+    }
+
+    else if (category === "property") {
+        documents = [
+            "Identity Proof",
+            "Property Ownership Documents",
+            "Sale Deed",
+            "Registration Documents",
+            "Property Tax Documents"
+        ];
+    }
+
+    else if (category === "cyber") {
+        documents = [
+            "Identity Proof",
+            "Screenshots of Messages or Emails",
+            "Transaction Details",
+            "Bank or Payment Records",
+            "Relevant Communication Records"
+        ];
+    }
+
+    else if (category === "consumer") {
+        documents = [
+            "Purchase Bill or Invoice",
+            "Payment Receipt",
+            "Warranty Documents",
+            "Product or Service Details",
+            "Complaint or Communication Records"
+        ];
+    }
+
+    else if (category === "employment") {
+        documents = [
+            "Identity Proof",
+            "Appointment or Offer Letter",
+            "Salary Slips and Bank Statements",
+            "PF / Gratuity Records",
+            "Emails, Messages or Notices from the Employer"
+        ];
+    }
+
+    documentList.innerHTML = "";
+
+    documents.forEach(function(doc) {
+        const item = document.createElement("li");
+        item.textContent = doc;
+        documentList.appendChild(item);
+    });
+
+    checklistResult.style.display = "block";
+}
+</script>
+
+</body>
+</html>

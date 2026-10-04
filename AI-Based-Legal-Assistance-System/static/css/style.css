@@ -1,0 +1,699 @@
+/* General Page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f8fc;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: darkblue;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* Logo */
+.logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 40px;
+}
+
+.hero h1 {
+    color: darkblue;
+    font-size: 40px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Feature Cards */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.features .card:hover {
+    transform: scale(1.05);
+}
+
+/* Buttons */
+button {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: navy;
+}
+
+/* Dropdown */
+select {
+    width: 250px;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+/* Search and Form Input */
+input {
+    width: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Legal Guidance Box */
+#guidanceBox {
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin: 30px auto;
+    text-align: left;
+}
+
+#guidanceBox h2 {
+    color: darkblue;
+}
+
+#guidanceBox h3 {
+    color: #444;
+}
+
+#guidanceBox p,
+#guidanceBox li {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+#guidanceBox hr {
+    margin: 15px 0;
+}
+
+/* Login and Registration Card */
+.login-card {
+    width: 350px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.login-card input {
+    width: 280px;
+}
+
+/* AI Chat Page */
+.chat-card {
+    width: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.chat-card input {
+    width: 80%;
+    text-align: center;
+}
+
+/* AI Risk Analyzer */
+
+.risk-container {
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.risk-container h1 {
+    margin-bottom: 15px;
+}
+
+.risk-container select,
+.risk-container textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.risk-container textarea {
+    resize: vertical;
+}
+
+#riskResult {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    background: #f5f5f5;
+}
+
+.high-risk {
+    border-left: 6px solid red;
+    background-color: #ffe5e5;
+}
+
+.medium-risk {
+    border-left: 6px solid orange;
+    background-color: #fff4d6;
+}
+
+.low-risk {
+    border-left: 6px solid green;
+    background-color: #e7f8e7;
+}
+
+/* Document Checklist Layout */
+.checklist-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.checklist-card {
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.checklist-card h2 {
+    margin-bottom: 15px;
+}
+
+.checklist-card p {
+    line-height: 1.6;
+}
+
+.checklist-card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.checklist-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.checklist-cards .card {
+    width: auto;
+    margin: 0;
+}
+
+#checklistResult {
+    width: auto;
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+
+/* Chat History Layout */
+.history-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.history-card {
+    width: auto;
+    margin: 0;
+    padding: 25px;
+}
+
+
+/* =====================================================
+   IMPROVEMENTS
+   ===================================================== */
+
+/* Navigation: wraps nicely on small screens, highlights current page */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px 6px;
+}
+
+nav a {
+    margin: 4px 8px;
+    font-size: 16px;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
+}
+
+nav a.active {
+    color: yellow;
+    border-bottom-color: yellow;
+}
+
+/* Keyboard focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #ffbf00;
+    outline-offset: 2px;
+}
+
+button:disabled {
+    background-color: #8a8fb3;
+    cursor: not-allowed;
+}
+
+.hero-compact {
+    padding: 25px 20px 10px;
+}
+
+.hero-compact h1 {
+    margin: 0 0 8px;
+}
+
+/* Lists inside feature cards read better left aligned */
+.card ul,
+.card ol {
+    text-align: left;
+}
+
+/* Page content that should not stretch edge to edge on big screens */
+.features .card {
+    box-sizing: border-box;
+}
+
+/* Login / register */
+.form-error {
+    background: #ffe5e5;
+    border-left: 5px solid #d32f2f;
+    color: #8a1c1c;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.login-card {
+    box-sizing: border-box;
+    max-width: 92%;
+}
+
+.login-card input {
+    max-width: 100%;
+}
+
+/* Risk analyzer textarea */
+.risk-container textarea {
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+/* ---------------- AI Chat ---------------- */
+.chat-shell {
+    width: 92%;
+    max-width: 760px;
+    margin: 10px auto 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 18px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.login-banner {
+    background: #fff4d6;
+    border-left: 5px solid orange;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.chat-window {
+    height: 420px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f4f8fc;
+    border-radius: 10px;
+    border: 1px solid #dde6f0;
+}
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.msg-user {
+    align-items: flex-end;
+}
+
+.msg-ai {
+    align-items: flex-start;
+}
+
+.bubble {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 16px;
+    line-height: 1.55;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.msg-user .bubble {
+    background: darkblue;
+    color: white;
+    border-bottom-right-radius: 3px;
+    white-space: pre-wrap;
+}
+
+.msg-ai .bubble {
+    background: white;
+    color: #222;
+    border: 1px solid #dde6f0;
+    border-bottom-left-radius: 3px;
+}
+
+.bubble p {
+    margin: 0 0 8px;
+}
+
+.bubble p:last-child,
+.bubble ul:last-child,
+.bubble ol:last-child {
+    margin-bottom: 0;
+}
+
+.bubble ul,
+.bubble ol {
+    margin: 4px 0 8px;
+    padding-left: 22px;
+}
+
+.bubble li {
+    margin-bottom: 4px;
+}
+
+.msg-note {
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+    padding-left: 4px;
+}
+
+.suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 4px;
+}
+
+.chip {
+    background: #eaf0fb;
+    color: darkblue;
+    border: 1px solid #c7d6f0;
+    border-radius: 18px;
+    padding: 7px 12px;
+    font-size: 14px;
+    margin: 0;
+}
+
+.chip:hover {
+    background: #d9e5f8;
+}
+
+.chat-input-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-top: 12px;
+}
+
+.chat-input-row textarea {
+    flex: 1;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    max-height: 140px;
+}
+
+.chat-input-row button {
+    margin: 0;
+    height: 42px;
+}
+
+.chat-footnote {
+    font-size: 12px;
+    color: #777;
+    margin: 10px 0 0;
+    text-align: center;
+}
+
+/* Typing indicator */
+.typing span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    background: #999;
+    border-radius: 50%;
+    animation: blink 1.2s infinite both;
+}
+
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0.2; }
+    40% { opacity: 1; }
+}
+
+/* ---------------- Chat History ---------------- */
+.history-list {
+    width: 92%;
+    max-width: 800px;
+    margin: 10px auto 40px;
+    text-align: left;
+}
+
+.history-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 15px 22px;
+    margin-bottom: 18px;
+    box-sizing: border-box;
+}
+
+.history-item h3 {
+    color: darkblue;
+    margin: 8px 0 4px;
+}
+
+.history-response {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.history-actions {
+    text-align: right;
+    margin-bottom: 12px;
+}
+
+.btn-danger {
+    background-color: #b3261e;
+    margin: 0;
+}
+
+.btn-danger:hover {
+    background-color: #8c1d18;
+}
+
+/* ---------------- Small screens ---------------- */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 17px; }
+    .checklist-cards,
+    .checklist-container,
+    .history-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    .features .card { width: 90%; }
+    .chat-window { height: 340px; }
+    .bubble { max-width: 92%; }
+}
+
+/* Employment Law Layout */
+
+.employment-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.employment-container .card {
+    width: auto;
+    margin: 0;
+    padding: 25px 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.employment-container .card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.employment-container .card p {
+    line-height: 1.5;
+}
+
+.employment-info-card {
+    grid-column: 2 / 4;
+    padding: 25px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.employment-info-card h2 {
+    text-align: center;
+}
+
+.employment-info-card p {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.employment-info-card li,
+.employment-info-card p {
+    font-weight: normal;
+}
+
+
+/* RESOLV.ai Branding */
+nav .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 15px 0 5px;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+nav .brand-badge {
+    background: white;
+    border-radius: 10px;
+    padding: 3px 6px;
+    display: inline-flex;
+    align-items: center;
+}
+
+nav .brand-badge img {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+nav .brand-name {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav .brand-ai {
+    color: #ffd56b;
+}
+
+nav .brand:hover .brand-name {
+    color: white;
+}
+
+.logo.logo-resolv {
+    width: 170px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.hero-brand {
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: darkblue;
+    margin-bottom: 10px;
+}
+
+.hero-brand span {
+    color: #b8860b;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Categories</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% include "_nav.html" %}
+
+    <div class="hero">
+
+        <h1>⚖️ Legal Categories</h1>
+
+        <p>Select the legal category related to your issue.</p>
+
+        <h3>🔍 Search Legal Category</h3>
+
+        <input
+            type="text"
+            id="searchCategory"
+            placeholder="Type Family Law or Cyber Crime"
+        >
+
+        <br><br>
+
+        <button onclick="searchCategory()">Search</button>
+
+        <hr>
+
+        <label for="category">
+            <b>Select Legal Category:</b>
+        </label>
+
+        <br><br>
+
+        <select id="category">
+
+            <option>Choose a Category</option>
+            <option>Family Law</option>
+            <option>Property Law</option>
+            <option>Cyber Crime</option>
+            <option>Consumer Law</option>
+            <option>Employment Law</option>
+
+        </select>
+
+        <br><br>
+
+        <button onclick="showGuidance()">Select</button>
+
+        <br><br>
+
+        <div class="card" id="guidanceBox">
+
+            <h2>📄 Legal Guidance</h2>
+
+            <p id="guidance">
+                Please select a legal category and click Select.
+            </p>
+
+            <hr>
+
+            <h3>📋 Required Documents</h3>
+
+            <ul id="documents">
+            </ul>
+
+            <hr>
+
+            <h3>🏛️ Government Department</h3>
+
+            <p id="department">
+                Select a category to view the department.
+            </p>
+
+            <hr>
+
+            <h3>📝 First Legal Step</h3>
+
+            <p id="step">
+                Select a category to view the first legal step.
+            </p>
+
+            <hr>
+
+            <h3>📋 Step-by-Step Procedure</h3>
+
+            <ol id="procedure">
+            </ol>
+
+        </div>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="card">
+
+            <h2>👨‍👩‍👧 Family Law</h2>
+
+            <p>
+                Marriage, divorce, child custody
+                and maintenance.
+            </p>
+
+            <button onclick="window.location.href='/family-law'">
+              Know More
+            </button>
+                
+        </div>
+
+
+        <div class="card">
+
+            <h2>🏠 Property Law</h2>
+
+            <p>
+                Property ownership, registration
+                and disputes.
+            </p>
+
+             <button onclick="window.location.href='/property-law'">
+               Know More
+             </button>
+        </div>
+
+
+        <div class="card">
+
+            <h2>💻 Cyber Crime</h2>
+
+            <p>
+                Online fraud, hacking and
+                cyber complaints.
+            </p>
+
+            <button onclick="window.location.href='/cyber-crime'">
+               Know More
+            </button>
+
+        </div>
+
+        <div class="card">
+           <h2>🛒 Consumer Law</h2>
+
+            <p>
+                Consumer rights, complaints, defective products
+                and unfair trade practices.
+            </p>
+
+            <button onclick="window.location.href='/consumer-law'">
+                Know More
+            </button>
+        </div>
+
+        <div class="card">
+            <h2>💼 Employment Law</h2>
+
+            <p>
+                Salary, termination, workplace rights
+                and employment records.
+            </p>
+
+            <button onclick="window.location.href='/employment-law'">
+                 Know More
+            </button>
+        </div>
+
+    </div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

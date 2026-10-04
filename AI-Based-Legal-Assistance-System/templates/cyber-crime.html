@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Crime - Legal Assistance System</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% include "_nav.html" %}
+
+    <div class="hero">
+
+        <h1>💻 Cyber Crime</h1>
+
+        <p>
+            General information and guidance about
+            common cyber-related legal issues.
+        </p>
+
+    </div>
+
+    <div class="features">
+
+        <div class="card">
+
+            <h2>💳 Online Fraud</h2>
+
+            <p>
+                General information about online fraud
+                and steps for reporting an incident.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🔐 Hacking</h2>
+
+            <p>
+                General information about unauthorized
+                access to computer systems or accounts.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🪪 Identity Theft</h2>
+
+            <p>
+                General information about misuse of
+                personal information and digital identity.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📱 Online Harassment</h2>
+
+            <p>
+                General information about reporting
+                harmful or threatening online behaviour.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="card" style="width: 600px; margin: 40px auto;">
+
+        <h2>📋 Common Evidence</h2>
+
+        <ul style="text-align: left;">
+
+            <li>Screenshots of relevant information</li>
+            <li>Transaction details, where applicable</li>
+            <li>Relevant emails or messages</li>
+            <li>Website or account details</li>
+            <li>Other supporting records</li>
+
+        </ul>
+
+        <hr>
+
+        <h3>📝 General Next Step</h3>
+
+        <p>
+            Preserve relevant evidence and use the
+            appropriate official reporting channel.
+            Seek qualified legal assistance when needed.
+        </p>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

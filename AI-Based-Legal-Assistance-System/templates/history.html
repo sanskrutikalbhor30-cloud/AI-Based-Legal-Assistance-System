@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History - Legal Assistance System</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+{% include "_nav.html" %}
+
+<div class="hero hero-compact">
+    <h1>📜 Chat History</h1>
+    <p>View your previous legal questions and AI responses.</p>
+</div>
+
+<div class="history-list">
+
+    {% if chats %}
+
+        <form method="POST" action="{{ url_for('clear_history') }}"
+              onsubmit="return confirm('Delete all your chat history? This cannot be undone.');"
+              class="history-actions">
+            <button type="submit" class="btn-danger">🗑️ Clear History</button>
+        </form>
+
+        {% for chat in chats %}
+
+            <div class="history-item">
+
+                <h3>❓ Question</h3>
+                <p>{{ chat.question }}</p>
+
+                <h3>🤖 AI Response</h3>
+                <p class="history-response">{{ chat.response }}</p>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="history-item">
+            <p>No chat history available yet. <a href="{{ url_for('chat') }}">Ask your first question</a>.</p>
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

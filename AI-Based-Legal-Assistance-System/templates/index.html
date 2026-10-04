@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESOLV.ai - AI-Based Legal Assistance System</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% include "_nav.html" %}
+
+
+    <div class="hero">
+
+        <img src="{{ url_for('static', filename='images/resolv-logo.png') }}" class="logo logo-resolv" alt="RESOLV.ai logo">
+
+        <div class="hero-brand">RESOLV<span>.ai</span></div>
+
+        <h1>AI-Based Legal Assistance and Guidance System</h1>
+
+        <p>
+            Get simple legal guidance, document checklists,
+            and AI-powered assistance based on Indian laws.
+        </p>
+
+        <br>
+
+        <button onclick="window.location.href='/categories'">
+           Explore Legal Categories
+        </button>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="card">
+            <h2>⚖️ Legal Categories</h2>
+
+            <p>
+                Find the correct legal category
+                for your problem.
+            </p>
+
+            <button onclick="window.location.href='/categories'">
+                    Explore
+            </button>
+                
+            
+        </div>
+
+
+        <div class="card">
+            <h2>📋 Document Checklist</h2>
+
+            <p>
+                Find documents that may be required
+                for different legal issues.
+            </p>
+
+            <button onclick="window.location.href='/checklist'">
+                 View Checklist
+            </button>
+                
+            
+        </div>
+
+
+        <div class="card">
+            <h2>🤖 AI Assistance</h2>
+
+            <p>
+                Get simple guidance about
+                common legal problems.
+            </p>
+
+            <button onclick="window.location.href='/chat'">
+                 Ask AI
+            </button>
+                
+            
+        </div>
+
+
+        <div class="card">
+            <h2>❓ Frequently Asked Questions</h2>
+
+            <p>
+                Find answers to common legal questions.
+            </p>
+
+            <button onclick="window.location.href='/faq'">
+                 View FAQ
+            </button>
+                
+            
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Law - Legal Assistance System</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% include "_nav.html" %}
+
+    <div class="hero">
+
+        <h1>🛒 Consumer Law</h1>
+
+        <p>
+            General information and guidance about
+            common consumer-related legal matters.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="card">
+
+            <h2>🛍️ Defective Product</h2>
+
+            <p>
+                General information about problems
+                related to defective or damaged products.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>💳 Payment Issues</h2>
+
+            <p>
+                General information about payment,
+                billing and transaction-related issues.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>📦 Product or Service Complaint</h2>
+
+            <p>
+                General information about complaints
+                related to products or services.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>⚖️ Consumer Dispute</h2>
+
+            <p>
+                General information about consumer
+                disputes and available complaint processes.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="card" style="width: 600px; margin: 40px auto;">
+
+        <h2>📋 Common Documents</h2>
+
+        <ul style="text-align: left;">
+
+            <li>Purchase Bill or Invoice</li>
+            <li>Payment Receipt</li>
+            <li>Warranty Documents, where applicable</li>
+            <li>Product or Service Details</li>
+            <li>Relevant Communication or Complaint Records</li>
+
+        </ul>
+
+        <hr>
+
+        <h3>📝 General Next Step</h3>
+
+        <p>
+            Keep your purchase and complaint-related
+            documents and seek appropriate consumer
+            or legal guidance for your specific situation.
+        </p>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

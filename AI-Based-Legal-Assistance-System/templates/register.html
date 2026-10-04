@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Legal Assistance System</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    {% include "_nav.html" %}
+
+
+    <div class="hero">
+
+        <h1>📄 Create Account</h1>
+
+        <p>
+            Create your account to use the legal assistance system.
+        </p>
+
+
+        <div class="card login-card">
+
+            <!-- Register Form -->
+            <form action="/register" method="POST">
+
+                <h2>Register 👤</h2>
+
+                {% if error %}
+                <div class="form-error">{{ error }}</div>
+                {% endif %}
+
+
+                <label for="registerName">Full Name:</label>
+                <br><br>
+
+                <input
+                    type="text"
+                    id="registerName"
+                    name="name"
+                    placeholder="Enter your full name"
+                    value="{{ name or '' }}"
+                    required
+                >
+
+                <br><br>
+
+
+                <label for="registerEmail">Email:</label>
+                <br><br>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    name="email"
+                    placeholder="Enter your email"
+                    value="{{ email or '' }}"
+                    required
+                >
+
+                <br><br>
+
+
+                <label for="registerPassword">Password:</label>
+                <br><br>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    name="password"
+                    placeholder="Create a password (min 6 characters)"
+                    minlength="6"
+                    required
+                >
+
+                <br><br>
+
+                <!-- Register Button -->
+                <button type="submit">Register</button>
+
+            </form>
+
+
+            <hr>
+
+            <p>
+                Already have an account?
+                <a href="/login">Login here</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Correct JavaScript path for Flask -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

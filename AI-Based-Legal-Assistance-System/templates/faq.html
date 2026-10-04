@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% include "_nav.html" %}
+
+    <div class="hero">
+
+        <h1>❓ Frequently Asked Questions</h1>
+
+        <p>
+            Find answers to common legal questions.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="card">
+
+            <h2>⚖️ What is this system?</h2>
+
+            <p>
+                This system provides simple legal guidance,
+                document checklists and information about
+                common legal categories.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>📋 What documents are required?</h2>
+
+            <p>
+                Required documents depend on the type of
+                legal issue. You can check the Document
+                Checklist section.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>💻 What is Cyber Crime?</h2>
+
+            <p>
+                Cyber Crime includes online fraud, hacking,
+                identity theft and other cyber-related offences.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>👨‍⚖️ Does this replace a lawyer?</h2>
+
+            <p>
+                No. This system provides general legal
+                information and guidance. For a specific
+                legal matter, consult a qualified legal
+                professional.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>🏠 What is Property Law?</h2>
+
+            <p>
+                Property Law deals with ownership,
+                registration, transfer and disputes
+                related to property.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>👨‍👩‍👧 What is Family Law?</h2>
+
+            <p>
+                Family Law covers matters such as
+                marriage, divorce, child custody and
+                maintenance.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

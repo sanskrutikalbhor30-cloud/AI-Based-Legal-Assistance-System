@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Legal Assistance System</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/resolv-logo.png') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    {% include "_nav.html" %}
+
+
+    <div class="hero">
+
+        <h1>🔐 Login</h1>
+
+        <p>Login to access your legal assistance account.</p>
+
+
+        <div class="card login-card">
+
+            <!-- Login Form -->
+            <form action="/login" method="POST">
+
+                <h2>Welcome Back 👋</h2>
+
+                {% if error %}
+                <div class="form-error">{{ error }}</div>
+                {% endif %}
+
+
+                <label for="loginEmail">Email:</label>
+                <br><br>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    name="email"
+                    placeholder="Enter your email"
+                    value="{{ email or '' }}"
+                    required
+                >
+
+                <br><br>
+
+
+                <label for="loginPassword">Password:</label>
+                <br><br>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <br><br>
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            <hr>
+
+            <p>
+                Don't have an account?
+                <a href="/register">Register here</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
